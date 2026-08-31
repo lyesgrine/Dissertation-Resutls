@@ -14,12 +14,9 @@ Show running (on ABR)
 
 show ip ospf route
 
-
 show ip ospf database
 
-show ip ospf database summary
-
-show ip ospf database summary json
+show ip ospf database database-summary
 
 ping all
 
