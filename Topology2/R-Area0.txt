@@ -1,4 +1,4 @@
------Before------------------------------------------------------------------------
+-----------------------------------------------------Before------------------------------------------------------------------------
 R-Area0#show ip route
 Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
        D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
@@ -100,7 +100,7 @@ R-Area0#
 
 
 
-----After manual-------------------------------------------------------------------
+-------------------------------------------------After manual-------------------------------------------------------------------
 R-Area0#show ip route
 Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
        D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
@@ -246,7 +246,7 @@ R-Area0#
 
 
 
-----After auto------------------------------------------------------------------------
+-----------------------------------------------------------After auto------------------------------------------------------------------------
 
 R-Area0#
 R-Area0#show ip route
@@ -387,7 +387,3 @@ Sending 5, 100-byte ICMP Echos to 10.0.11.1, timeout is 2 seconds:
 !!!!!
 Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms
 R-Area0#
-
-
-
-
