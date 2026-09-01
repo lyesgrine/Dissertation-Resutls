@@ -1,4 +1,4 @@
-# Dissertation-Resutls - Lyes Grine
+# Dissertation Resutls - Lyes Grine
 This repository is for storing my dissertation resutls/topologies/screenshots
 
 Each folder will have one topology with:
