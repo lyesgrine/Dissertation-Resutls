@@ -1,0 +1,332 @@
+---------------------------------------------------------Before------------------------------------------------------------------------
+R-Area0#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      10.0.0.0/24 is subnetted, 8 subnets
+O IA     10.0.0.0 [110/13] via 192.168.0.1, 00:04:19, GigabitEthernet0/0
+O IA     10.0.1.0 [110/12] via 192.168.0.1, 00:04:19, GigabitEthernet0/0
+O IA     10.0.2.0 [110/12] via 192.168.0.1, 00:04:19, GigabitEthernet0/0
+O IA     10.0.3.0 [110/13] via 192.168.0.1, 00:04:19, GigabitEthernet0/0
+O IA     10.0.4.0 [110/13] via 192.168.0.1, 00:04:19, GigabitEthernet0/0
+O IA     10.0.5.0 [110/14] via 192.168.0.1, 00:04:19, GigabitEthernet0/0
+O IA     10.0.6.0 [110/13] via 192.168.0.1, 00:04:19, GigabitEthernet0/0
+O IA     10.0.7.0 [110/13] via 192.168.0.1, 00:04:19, GigabitEthernet0/0
+      172.16.0.0/24 is subnetted, 1 subnets
+O IA     172.16.0.0 [110/11] via 192.168.0.1, 1w6d, GigabitEthernet0/0
+      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.0.0/24 is directly connected, GigabitEthernet0/0
+L        192.168.0.2/32 is directly connected, GigabitEthernet0/0
+R-Area0#   
+
+R-Area0#show ip ospf database 
+
+            OSPF Router with ID (192.168.0.2) (Process ID 1)
+
+                Router Link States (Area 0)
+
+Link ID         ADV Router      Age         Seq#       Checksum Link count
+192.168.0.1     192.168.0.1     1669        0x800005F9 0x00811F 1
+192.168.0.2     192.168.0.2     360         0x80000604 0x00E09B 1
+
+                Net Link States (Area 0)
+
+Link ID         ADV Router      Age         Seq#       Checksum
+192.168.0.2     192.168.0.2     360         0x8000023F 0x001C31
+
+                Summary Net Link States (Area 0)
+
+Link ID         ADV Router      Age         Seq#       Checksum
+10.0.0.255      192.168.0.1     287         0x80000001 0x004F8D
+10.0.1.0        192.168.0.1     287         0x80000001 0x003AA2
+10.0.2.0        192.168.0.1     287         0x80000001 0x002FAC
+10.0.3.0        192.168.0.1     287         0x80000001 0x002EAB
+10.0.4.0        192.168.0.1     287         0x80000001 0x0023B5
+10.0.5.0        192.168.0.1     287         0x80000001 0x0022B4
+10.0.6.0        192.168.0.1     287         0x80000001 0x000DC9
+10.0.7.0        192.168.0.1     287         0x80000001 0x0002D3
+172.16.0.0      192.168.0.1     328         0x800002A2 0x00EE99
+R-Area0#
+
+R-Area0#show ip ospf database database-summary 
+
+            OSPF Router with ID (192.168.0.2) (Process ID 1)
+
+Area 0 database summary
+  LSA Type      Count    Delete   Maxage
+  Router        2        0        0       
+  Network       1        0        0       
+  Summary Net   9        0        0       
+  Summary ASBR  0        0        0       
+  Type-7 Ext    0        0        0       
+    Prefixes redistributed in Type-7  0
+  Opaque Link   0        0        0       
+  Opaque Area   0        0        0       
+  Subtotal      12       0        0       
+
+Process 1 database summary
+  LSA Type      Count    Delete   Maxage
+  Router        2        0        0       
+  Network       1        0        0       
+  Summary Net   9        0        0       
+  Summary ASBR  0        0        0       
+  Type-7 Ext    0        0        0       
+  Opaque Link   0        0        0       
+  Opaque Area   0        0        0       
+  Type-5 Ext    0        0        0       
+      Prefixes redistributed in Type-5  0
+  Opaque AS     0        0        0       
+  Non-self      10      
+  Total         12       0        0       
+R-Area0#
+
+
+
+
+
+-----------------------------------------------------------------After manual-------------------------------------------------------------------
+R-Area0#
+R-Area0#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      10.0.0.0/21 is subnetted, 1 subnets
+O IA     10.0.0.0 [110/14] via 192.168.0.1, 00:01:38, GigabitEthernet0/0
+      172.16.0.0/24 is subnetted, 1 subnets
+O IA     172.16.0.0 [110/11] via 192.168.0.1, 1w6d, GigabitEthernet0/0
+      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.0.0/24 is directly connected, GigabitEthernet0/0
+L        192.168.0.2/32 is directly connected, GigabitEthernet0/0
+R-Area0# 
+R-Area0#show ip ospf database 
+
+            OSPF Router with ID (192.168.0.2) (Process ID 1)
+
+                Router Link States (Area 0)
+
+Link ID         ADV Router      Age         Seq#       Checksum Link count
+192.168.0.1     192.168.0.1     154         0x800005FA 0x007F20 1
+192.168.0.2     192.168.0.2     566         0x80000604 0x00E09B 1
+
+                Net Link States (Area 0)
+
+Link ID         ADV Router      Age         Seq#       Checksum
+192.168.0.2     192.168.0.2     566         0x8000023F 0x001C31
+
+                Summary Net Link States (Area 0)
+
+Link ID         ADV Router      Age         Seq#       Checksum
+10.0.0.0        192.168.0.1     109         0x80000001 0x0036AC
+172.16.0.0      192.168.0.1     534         0x800002A2 0x00EE99
+R-Area0#
+R-Area0#show ip ospf database database-summary 
+
+            OSPF Router with ID (192.168.0.2) (Process ID 1)
+
+Area 0 database summary
+  LSA Type      Count    Delete   Maxage
+  Router        2        0        0       
+  Network       1        0        0       
+  Summary Net   2        0        0       
+  Summary ASBR  0        0        0       
+  Type-7 Ext    0        0        0       
+    Prefixes redistributed in Type-7  0
+  Opaque Link   0        0        0       
+  Opaque Area   0        0        0       
+  Subtotal      5        0        0       
+
+Process 1 database summary
+  LSA Type      Count    Delete   Maxage
+  Router        2        0        0       
+  Network       1        0        0       
+  Summary Net   2        0        0       
+  Summary ASBR  0        0        0       
+  Type-7 Ext    0        0        0       
+  Opaque Link   0        0        0       
+  Opaque Area   0        0        0       
+  Type-5 Ext    0        0        0       
+      Prefixes redistributed in Type-5  0
+  Opaque AS     0        0        0       
+  Non-self      3       
+  Total         5        0        0       
+R-Area0#
+
+R-Area0#ping 10.0.0.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.0.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms
+R-Area0#ping 10.0.1.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.1.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms
+R-Area0#ping 10.0.2.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.2.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms
+R-Area0#ping 10.0.3.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.3.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+R-Area0#ping 10.0.4.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.4.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms
+R-Area0#ping 10.0.5.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.5.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms
+R-Area0#ping 10.0.6.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.6.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms
+R-Area0#ping 10.0.7.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.7.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 2/2/2 ms
+R-Area0#
+
+
+
+
+---------------------------------------------------------------After auto------------------------------------------------------------------------
+R-Area0#
+R-Area0#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      10.0.0.0/21 is subnetted, 1 subnets
+O IA     10.0.0.0 [110/14] via 192.168.0.1, 00:01:36, GigabitEthernet0/0
+      172.16.0.0/24 is subnetted, 1 subnets
+O IA     172.16.0.0 [110/11] via 192.168.0.1, 1w6d, GigabitEthernet0/0
+      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.0.0/24 is directly connected, GigabitEthernet0/0
+L        192.168.0.2/32 is directly connected, GigabitEthernet0/0
+R-Area0#
+R-Area0#show ip ospf database 
+
+            OSPF Router with ID (192.168.0.2) (Process ID 1)
+
+                Router Link States (Area 0)
+
+Link ID         ADV Router      Age         Seq#       Checksum Link count
+192.168.0.1     192.168.0.1     419         0x800005FA 0x007F20 1
+192.168.0.2     192.168.0.2     831         0x80000604 0x00E09B 1
+
+                Net Link States (Area 0)
+
+Link ID         ADV Router      Age         Seq#       Checksum
+192.168.0.2     192.168.0.2     831         0x8000023F 0x001C31
+
+                Summary Net Link States (Area 0)
+
+Link ID         ADV Router      Age         Seq#       Checksum
+10.0.0.0        192.168.0.1     107         0x80000002 0x0034AD
+172.16.0.0      192.168.0.1     799         0x800002A2 0x00EE99
+R-Area0#
+R-Area0#show ip ospf database database-summary 
+
+            OSPF Router with ID (192.168.0.2) (Process ID 1)
+
+Area 0 database summary
+  LSA Type      Count    Delete   Maxage
+  Router        2        0        0       
+  Network       1        0        0       
+  Summary Net   2        0        0       
+  Summary ASBR  0        0        0       
+  Type-7 Ext    0        0        0       
+    Prefixes redistributed in Type-7  0
+  Opaque Link   0        0        0       
+  Opaque Area   0        0        0       
+  Subtotal      5        0        0       
+
+Process 1 database summary
+  LSA Type      Count    Delete   Maxage
+  Router        2        0        0       
+  Network       1        0        0       
+  Summary Net   2        0        0       
+  Summary ASBR  0        0        0       
+  Type-7 Ext    0        0        0       
+  Opaque Link   0        0        0       
+  Opaque Area   0        0        0       
+  Type-5 Ext    0        0        0       
+      Prefixes redistributed in Type-5  0
+  Opaque AS     0        0        0       
+  Non-self      3       
+  Total         5        0        0       
+R-Area0#
+R-Area0#ping 10.0.0.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.0.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 2/2/3 ms
+R-Area0#ping 10.0.1.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.1.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms
+R-Area0#ping 10.0.2.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.2.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms
+R-Area0#ping 10.0.3.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.3.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms
+R-Area0#ping 10.0.4.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.4.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms
+R-Area0#ping 10.0.5.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.5.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 2/2/3 ms
+R-Area0#ping 10.0.6.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.6.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/2/3 ms
+R-Area0#ping 10.0.7.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.7.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms
+R-Area0#             
