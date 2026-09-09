@@ -31,21 +31,7 @@ exit
 end
 FRR_ABR# 
 
-
-
-
-
-
-
 ---------------After manual-------------------------------
-
-FRR_ABR# 
-FRR_ABR# 
-FRR_ABR# manula for area 1 (will do area 4 with auto to show that its working 
-% Unknown command: manula for area 1 (will do area 4 with auto to show that its working 
-FRR_ABR# 
-FRR_ABR# 
-FRR_ABR# 
 FRR_ABR# 
 FRR_ABR# conf t
 FRR_ABR(config)# router ospf
@@ -88,11 +74,6 @@ exit
 end
 FRR_ABR# 
 FRR_ABR# 
-
-
-
-
-
 
 -------------After automatic------------------------------
 FRR_ABR# conf t
@@ -147,23 +128,10 @@ end
 FRR_ABR# 
 FRR_ABR# 
 
-
-
-
-
-
-
-
 -----------Bonus auto summary for multiple areas------------
-
-
-
-
-
 FRR_ABR# 
 FRR_ABR# trying to auto summary both areas (each one with one command)
 % Unknown command: trying to auto summary both areas (each one with one command)
-FRR_ABR# 
 FRR_ABR# 
 FRR_ABR# 
 FRR_ABR# conf t
@@ -228,11 +196,11 @@ end
 FRR_ABR# 
 
 
+       -----Bonus removing for multiple areas-------
 
 FRR_ABR# 
 FRR_ABR# trying the remove command for both 
 % Unknown command: trying the remove command for both 
-FRR_ABR# 
 FRR_ABR# 
 FRR_ABR# 
 FRR_ABR# cong t
@@ -283,4 +251,3 @@ router ospf
 exit
 !
 end
-FRR_ABR# 
