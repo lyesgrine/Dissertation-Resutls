@@ -29,10 +29,7 @@ exit
 end
 FRR_ABR# 
 
-
-
-
----------------After manual-------------------------------
+---------------After manual----------------------------------
 FRR_ABR# 
 FRR_ABR# conf t
 FRR_ABR(config)# router ospf
@@ -70,14 +67,7 @@ end
 FRR_ABR# 
 
 
-
-
-
-
-
-
-
--------------After automatic-------------
+-------------After automatic-----------------------------------
 FRR_ABR# conf t
 FRR_ABR(config)# router ospf
 FRR_ABR(config-router)# area 1 range auto-summary
@@ -122,10 +112,7 @@ exit
 end
 FRR_ABR# 
 
-
-
-
-
+      --------Remove auto--------
 
 FRR_ABR# 
 FRR_ABR# conf t
@@ -163,4 +150,3 @@ router ospf
 exit
 !
 end
-FRR_ABR(config-router)# 
