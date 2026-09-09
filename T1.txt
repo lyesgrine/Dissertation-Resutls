@@ -1,0 +1,212 @@
+-------Before----------------------------------------------------------
+FRR_ABR# show ip route
+Codes: K - kernel route, C - connected, L - local, S - static,
+       R - RIP, O - OSPF, I - IS-IS, B - BGP, E - EIGRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric, t - Table-Direct,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+IPv4 unicast VRF default:
+K   0.0.0.0/0 [0/1002] is directly connected, ens3 inactive linkdown, weight 1, 5d08h46m
+O>* 10.0.0.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.1.0/24 [110/11] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.2.0/24 [110/11] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.3.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.4.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.5.0/24 [110/13] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.6.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.7.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+C>* 172.16.0.0/24 is directly connected, ens5, weight 1, 01w6d08h
+L>* 172.16.0.1/32 is directly connected, ens5, weight 1, 01w6d08h
+C>  172.16.14.0/24 [0/100] is directly connected, ens3 inactive, weight 1, 01w6d08h
+C>* 192.168.0.0/24 is directly connected, ens4, weight 1, 01w6d08h
+L>* 192.168.0.1/32 is directly connected, ens4, weight 1, 01w6d08h
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# show runn
+Building configuration...
+
+Current configuration:
+!
+frr version 10.8.0-dev-my-manual-build
+frr defaults traditional
+hostname user-pc
+hostname FRR_ABR
+!
+interface ens3
+ shutdown
+exit
+!
+interface ens4
+ ip address 192.168.0.1/24
+exit
+!
+interface ens5
+ ip address 172.16.0.1/24
+exit
+!
+router ospf
+ network 172.16.0.1/32 area 1
+ network 192.168.0.1/32 area 0
+exit
+!
+end
+FRR_ABR# 
+
+
+
+
+-------After manual----------------------------------------------------
+
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# show ip route
+Codes: K - kernel route, C - connected, L - local, S - static,
+       R - RIP, O - OSPF, I - IS-IS, B - BGP, E - EIGRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric, t - Table-Direct,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+IPv4 unicast VRF default:
+K   0.0.0.0/0 [0/1002] is directly connected, ens3 inactive linkdown, weight 1, 5d08h46m
+O>* 10.0.0.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.1.0/24 [110/11] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.2.0/24 [110/11] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.3.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.4.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.5.0/24 [110/13] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.6.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.7.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+C>* 172.16.0.0/24 is directly connected, ens5, weight 1, 01w6d08h
+L>* 172.16.0.1/32 is directly connected, ens5, weight 1, 01w6d08h
+C>  172.16.14.0/24 [0/100] is directly connected, ens3 inactive, weight 1, 01w6d08h
+C>* 192.168.0.0/24 is directly connected, ens4, weight 1, 01w6d08h
+L>* 192.168.0.1/32 is directly connected, ens4, weight 1, 01w6d08h
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# show runn
+Building configuration...
+
+Current configuration:
+!
+frr version 10.8.0-dev-my-manual-build
+frr defaults traditional
+hostname user-pc
+hostname FRR_ABR
+!
+interface ens3
+ shutdown
+exit
+!
+interface ens4
+ ip address 192.168.0.1/24
+exit
+!
+interface ens5
+ ip address 172.16.0.1/24
+exit
+!
+router ospf
+ network 172.16.0.1/32 area 1
+ network 192.168.0.1/32 area 0
+exit
+!
+end
+FRR_ABR# 
+
+
+
+
+
+
+
+
+
+-------After auto-------------------------------------------------------
+
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# show ip route
+Codes: K - kernel route, C - connected, L - local, S - static,
+       R - RIP, O - OSPF, I - IS-IS, B - BGP, E - EIGRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric, t - Table-Direct,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+IPv4 unicast VRF default:
+K   0.0.0.0/0 [0/1002] is directly connected, ens3 inactive linkdown, weight 1, 5d08h46m
+O>* 10.0.0.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.1.0/24 [110/11] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.2.0/24 [110/11] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.3.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.4.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.5.0/24 [110/13] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.6.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+O>* 10.0.7.0/24 [110/12] via 172.16.0.2, ens5, weight 1, 01w6d08h
+C>* 172.16.0.0/24 is directly connected, ens5, weight 1, 01w6d08h
+L>* 172.16.0.1/32 is directly connected, ens5, weight 1, 01w6d08h
+C>  172.16.14.0/24 [0/100] is directly connected, ens3 inactive, weight 1, 01w6d08h
+C>* 192.168.0.0/24 is directly connected, ens4, weight 1, 01w6d08h
+L>* 192.168.0.1/32 is directly connected, ens4, weight 1, 01w6d08h
+FRR_ABR# 
+FRR_ABR# 
+FRR_ABR# show runn
+Building configuration...
+
+Current configuration:
+!
+frr version 10.8.0-dev-my-manual-build
+frr defaults traditional
+hostname user-pc
+hostname FRR_ABR
+!
+interface ens3
+ shutdown
+exit
+!
+interface ens4
+ ip address 192.168.0.1/24
+exit
+!
+interface ens5
+ ip address 172.16.0.1/24
+exit
+!
+router ospf
+ network 172.16.0.1/32 area 1
+ network 192.168.0.1/32 area 0
+exit
+!
+end
+FRR_ABR# 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

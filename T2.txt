@@ -1,0 +1,168 @@
+----------------Before------------------------------------
+FRR_ABR# show run
+Building configuration...
+
+Current configuration:
+!
+frr version 10.8.0-dev-my-manual-build
+frr defaults traditional
+hostname user-pc
+hostname FRR_ABR
+!
+interface ens3
+ shutdown
+exit
+!
+interface ens4
+ ip address 192.168.0.1/24
+exit
+!
+interface ens5
+ ip address 172.16.0.1/24
+exit
+!
+router ospf
+ network 172.16.0.1/32 area 1
+ network 192.168.0.1/32 area 0
+exit
+!
+end
+FRR_ABR# 
+
+
+
+
+---------------After manual-------------------------------
+FRR_ABR# 
+FRR_ABR# conf t
+FRR_ABR(config)# router ospf
+FRR_ABR(config-router)# area 1 range 10.0.0.0/20
+FRR_ABR(config-router)# end
+FRR_ABR# show run
+Building configuration...
+
+Current configuration:
+!
+frr version 10.8.0-dev-my-manual-build
+frr defaults traditional
+hostname user-pc
+hostname FRR_ABR
+!
+interface ens3
+ shutdown
+exit
+!
+interface ens4
+ ip address 192.168.0.1/24
+exit
+!
+interface ens5
+ ip address 172.16.0.1/24
+exit
+!
+router ospf
+ network 172.16.0.1/32 area 1
+ network 192.168.0.1/32 area 0
+ area 1 range 10.0.0.0/20
+exit
+!
+end
+FRR_ABR# 
+
+
+
+
+
+
+
+
+
+-------------After automatic-------------
+FRR_ABR# conf t
+FRR_ABR(config)# router ospf
+FRR_ABR(config-router)# area 1 range auto-summary
+Auto-summary - area 0.0.0.1:
+  [Stale-cleanup] No stale ranges from previous run
+  This area: 13 intra-area network route(s), Other areas: 1 blocker(s)
+  Merge complete: 10 merge(s) performed, 3 final prefix(es) in the area
+  [installed] 10.0.0.0/21
+  [installed] 10.0.8.0/22
+  Result: 2 range(s) installed.
+FRR_ABR(config-router)# 
+FRR_ABR(config-router)# end
+FRR_ABR# show run
+Building configuration...
+
+Current configuration:
+!
+frr version 10.8.0-dev-my-manual-build
+frr defaults traditional
+hostname user-pc
+hostname FRR_ABR
+!
+interface ens3
+ shutdown
+exit
+!
+interface ens4
+ ip address 192.168.0.1/24
+exit
+!
+interface ens5
+ ip address 172.16.0.1/24
+exit
+!
+router ospf
+ network 172.16.0.1/32 area 1
+ network 192.168.0.1/32 area 0
+ area 1 range 10.0.0.0/21
+ area 1 range 10.0.8.0/22
+exit
+!
+end
+FRR_ABR# 
+
+
+
+
+
+
+FRR_ABR# 
+FRR_ABR# conf t
+FRR_ABR(config)# router ospf
+FRR_ABR(config-router)# no area 1 range auto-summary
+Removing auto-summary ranges for area 0.0.0.1:
+  [removed] 10.0.0.0/21
+  [removed] 10.0.8.0/22
+  Result: 2 range(s) removed.
+FRR_ABR(config-router)# do show run
+Building configuration...
+
+Current configuration:
+!
+frr version 10.8.0-dev-my-manual-build
+frr defaults traditional
+hostname user-pc
+hostname FRR_ABR
+!
+interface ens3
+ shutdown
+exit
+!
+interface ens4
+ ip address 192.168.0.1/24
+exit
+!
+interface ens5
+ ip address 172.16.0.1/24
+exit
+!
+router ospf
+ network 172.16.0.1/32 area 1
+ network 192.168.0.1/32 area 0
+exit
+!
+end
+FRR_ABR(config-router)# 
+
+
