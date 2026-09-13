@@ -20,3 +20,4 @@ The show commands collected are: (before and after each summary method)
 
 
 Custom FRR image: https://hub.docker.com/r/lyesgrine/frr-auto-range-final-final
+Playlist: https://youtube.com/playlist?list=PLVrRnZRXbsrg&si=R3L8VgLNEqoa3Sqh
