@@ -19,3 +19,4 @@ The show commands collected are: (before and after each summary method)
 - ping all summarized addresses/routes
 
 
+Custom FRR image: https://hub.docker.com/r/lyesgrine/frr-auto-range-final-final
